@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 - 2016 Sony Corporation
+ * Copyright (C) 2013 - 2017 Sony Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
 
 
 /* Get LDAC library version */
-#define LDACBT_LIB_VER_MAJOR   1
-#define LDACBT_LIB_VER_MINOR   2
-#define LDACBT_LIB_VER_BRANCH  0
+#define LDACBT_LIB_VER_MAJOR   2
+#define LDACBT_LIB_VER_MINOR   0
+#define LDACBT_LIB_VER_BRANCH  2
 LDACBT_API int ldacBT_get_version( void )
 {
     return ((LDACBT_LIB_VER_MAJOR)<<16)|((LDACBT_LIB_VER_MINOR)<<8)|(LDACBT_LIB_VER_BRANCH);
@@ -547,7 +547,7 @@ LDACBT_API int ldacBT_encode( HANDLE_LDAC_BT hLdacBT, void *p_pcm, int *pcm_used
         }
         p_pcm_ring_r = ppcmring->buf + ppcmring->rp;
         ldacBT_prepare_pcm_encode( p_pcm_ring_r, hLdacBT->pp_pcm, hLdacBT->frm_samples, ch, fmt );
-        result = ldaclib_encode(hLdacBT->hLDAC, hLdacBT->pp_pcm, fmt,
+        result = ldaclib_encode(hLdacBT->hLDAC, hLdacBT->pp_pcm, (LDAC_SMPL_FMT_T)fmt,
                          p_ldac_transport_frame+LDACBT_FRMHDRBYTES, &frmlen_wrote);
         if( !LDAC_FAILED(result) ){
             ppcmring->rp += hLdacBT->frm_samples * wl * ch;
@@ -556,7 +556,7 @@ LDACBT_API int ldacBT_encode( HANDLE_LDAC_BT hLdacBT, void *p_pcm, int *pcm_used
             if( ppcmring->nsmpl < 0 ){ ppcmring->nsmpl = 0; }
         }
     }else{
-        result = ldaclib_flush_encode(hLdacBT->hLDAC, fmt,
+        result = ldaclib_flush_encode(hLdacBT->hLDAC, (LDAC_SMPL_FMT_T)fmt,
                              p_ldac_transport_frame+LDACBT_FRMHDRBYTES, &frmlen_wrote);
         hLdacBT->flg_encode_flushed = TRUE;
     }
