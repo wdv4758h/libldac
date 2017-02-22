@@ -12,5 +12,5 @@ cc_library_shared {
     ],
     // -D_32BIT_FIXED_POINT should be added to cflags for devices without a FPU
     // unit such as ARM Cortex-R series or external 32-bit DSPs.
-    cflags: ["-O2"],
+    cflags: ["-O2", "-Werror"],
 }

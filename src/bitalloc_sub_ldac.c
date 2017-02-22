@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003 - 2016 Sony Corporation
+ * Copyright (C) 2003 - 2017 Sony Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
     Calculate Bits for Band Info
 ***************************************************************************************************/
 static int encode_band_info_ldac(
-AB *p_ab)
+__attribute__((unused)) AB *p_ab)
 {
     int	nbits;
 
