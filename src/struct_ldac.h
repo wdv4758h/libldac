@@ -27,6 +27,7 @@
 ***************************************************************************************************/
 
 #define DECLFUNC static
+#define UNUSED_ATTR __attribute__((unused))
 
 #ifndef PI
 #ifdef M_PI
