@@ -149,7 +149,7 @@ DECLFUNC int ldacBT_assert_cm( int cm )
     }
     return LDACBT_ERR_NONE;
 }
-DECLFUNC int ldacBT_assert_cci( int cci )
+UNUSED_ATTR DECLFUNC int ldacBT_assert_cci( int cci )
 {
     if( (cci != LDAC_CCI_STEREO )
         && (cci != LDAC_CCI_DUAL_CHANNEL )
@@ -403,7 +403,7 @@ DECLFUNC int  ldacBT_cm_to_cci( int cm )
  * The argument cci, channel_config_index, must be checked by the function ldacBT_assert_cci() before
  * calling this function.
  */
-DECLFUNC int  ldacBT_cci_to_cm( int cci )
+UNUSED_ATTR DECLFUNC int  ldacBT_cci_to_cm( int cci )
 {
     if( cci == LDAC_CCI_STEREO ){
         return LDACBT_CHANNEL_MODE_STEREO;
