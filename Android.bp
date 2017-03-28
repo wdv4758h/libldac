@@ -14,3 +14,16 @@ cc_library_shared {
     // unit such as ARM Cortex-R series or external 32-bit DSPs.
     cflags: ["-O2", "-Werror", "-Wall", "-Wextra"],
 }
+
+cc_library_shared {
+    name: "libldacBT_abr",
+    arch: {
+        arm: {
+            instruction_set: "arm",
+        },
+    },
+    export_include_dirs: ["abr/inc"],
+    srcs: ["abr/src/ldacBT_abr.c"],
+    shared_libs: ["libldacBT_enc"],
+    cflags: ["-O2", "-Werror", "-Wall", "-Wextra"]
+}
