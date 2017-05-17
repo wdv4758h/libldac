@@ -1,5 +1,6 @@
 cc_library_shared {
     name: "libldacBT_enc",
+    vendor_available: true,
     arch: {
         arm: {
             instruction_set: "arm",
@@ -17,6 +18,7 @@ cc_library_shared {
 
 cc_library_shared {
     name: "libldacBT_abr",
+    vendor_available: true,
     arch: {
         arm: {
             instruction_set: "arm",
